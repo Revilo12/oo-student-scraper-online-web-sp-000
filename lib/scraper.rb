@@ -25,7 +25,7 @@ class Scraper
       student_hash[social_name.to_sym] = link unless link == nil
       social_links.delete(link)
     end
-    student_hash[:blog] = social_links.last unless social_links.empty?
+    student_hash[:blog] = social_links.last unless social_links == []
     student_hash[:profile_quote] = doc.css(".profile-quote").text
     student_hash[:bio] = doc.css(".bio-block p").text
     student_hash
